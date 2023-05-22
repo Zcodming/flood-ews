@@ -1,8 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toast";
+import { authOptions } from "@/library/auth";
 import { cn } from "@/library/utils";
 import "@/styles/globals.css";
+import { getServerSession } from "next-auth";
 import { Inter } from "next/font/google";
 
 export const metadata = {
@@ -11,13 +13,23 @@ export const metadata = {
 };
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+	const user = await getServerSession(authOptions);
+
+	const role = user?.user.role;
+	const name = user?.user.name;
+	let session = false;
+
+	if (user) {
+		session = true;
+	}
+
 	return (
 		<html lang="en" className={cn("bg-white text-slate-900 antialiased", inter.className)}>
 			<body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
 				<Providers>
 					{/* @ts-expect-error Server Component */}
-					<Navbar />
+					<Navbar role={role} name={name} session={session} />
 
 					{children}
 					<Toaster position="bottom-right" />

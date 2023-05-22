@@ -7,9 +7,11 @@ import { usePathname } from "next/navigation";
 import { FC, useState } from "react";
 import Icons from "./Icons";
 
-interface MenuTogglerProps {}
+interface MenuTogglerProps {
+	isAdmin: boolean;
+}
 
-const MenuToggler: FC<MenuTogglerProps> = ({}) => {
+const MenuToggler: FC<MenuTogglerProps> = ({ isAdmin }) => {
 	const [collapseShow, setCollapseShow] = useState<boolean>(true);
 	const [menuStyle, setMenuStyle] = useState<string>(" xl:w-72 ");
 
@@ -113,18 +115,20 @@ const MenuToggler: FC<MenuTogglerProps> = ({}) => {
 								</Link>
 							</li>
 
-							<li className="xl:mx-2 my-2 w-full">
-								<Link
-									className={buttonVariants({
-										variant: "ghost",
-										className: "pr-4 py-4 w-full h-full items-start justify-stretch",
-										active: pathname !== "#" ? "off" : "on",
-									})}
-									href="/device">
-									<Icons.Wrench className="shrink-0" />
-									<span className="pl-4 hidden xl:block">Sensor Device</span>
-								</Link>
-							</li>
+							{isAdmin ? (
+								<li className="xl:mx-2 my-2 w-full">
+									<Link
+										className={buttonVariants({
+											variant: "ghost",
+											className: "pr-4 py-4 w-full h-full items-start justify-stretch",
+											active: pathname !== "#" ? "off" : "on",
+										})}
+										href="/device">
+										<Icons.Wrench className="shrink-0" />
+										<span className="pl-4 hidden xl:block">Sensor Device</span>
+									</Link>
+								</li>
+							) : null}
 
 							<li className="xl:mx-2 my-2 w-full">
 								<Link
@@ -139,31 +143,35 @@ const MenuToggler: FC<MenuTogglerProps> = ({}) => {
 								</Link>
 							</li>
 
-							<li className="xl:mx-2 my-2 w-full">
-								<Link
-									className={buttonVariants({
-										variant: "ghost",
-										className: "pr-4 py-4 w-full h-full items-start justify-stretch",
-										active: pathname !== "/account" ? "off" : "on",
-									})}
-									href="/account">
-									<Icons.User className="shrink-0" />
-									<span className="pl-4 hidden xl:block">Account</span>
-								</Link>
-							</li>
+							{isAdmin ? (
+								<li className="xl:mx-2 my-2 w-full">
+									<Link
+										className={buttonVariants({
+											variant: "ghost",
+											className: "pr-4 py-4 w-full h-full items-start justify-stretch",
+											active: pathname !== "/account" ? "off" : "on",
+										})}
+										href="/account">
+										<Icons.User className="shrink-0" />
+										<span className="pl-4 hidden xl:block">Account</span>
+									</Link>
+								</li>
+							) : null}
 
-							<li className="xl:mx-2 my-2 w-full">
-								<Link
-									className={buttonVariants({
-										variant: "ghost",
-										className: "pr-4 py-4 w-full h-full items-start justify-stretch",
-										active: pathname !== "/profile" ? "off" : "on",
-									})}
-									href="/profile">
-									<Icons.User className="shrink-0" />
-									<span className="pl-4 hidden xl:block">Profile</span>
-								</Link>
-							</li>
+							{!isAdmin ? (
+								<li className="xl:mx-2 my-2 w-full">
+									<Link
+										className={buttonVariants({
+											variant: "ghost",
+											className: "pr-4 py-4 w-full h-full items-start justify-stretch",
+											active: pathname !== "/profile" ? "off" : "on",
+										})}
+										href="/profile">
+										<Icons.User className="shrink-0" />
+										<span className="pl-4 hidden xl:block">Profile</span>
+									</Link>
+								</li>
+							) : null}
 						</ul>
 					</div>
 					{/* <Button className="mx-2 shrink-0" onClick={toggleMenu}>

@@ -1,4 +1,10 @@
-import { createUser, deleteUser, getUserById, getUsers, updateUser } from "@/library/prisma/users.controller";
+import {
+	createDevice,
+	deleteDevice,
+	getDeviceById,
+	getDevices,
+	updateDevice,
+} from "@/library/prisma/devices.controller";
 import { Request, Response } from "express";
 
 // error message function for unknown variable error
@@ -16,14 +22,22 @@ const handler = async (req: Request, res: Response) => {
 	// run function to create new user
 	if (req.method === "POST") {
 		try {
-			const name = req.body.name;
-			const username = req.body.username;
-			const email = req.body.email;
-			const rawPassword = req.body.password;
-			const role = req.body.role;
-			const { user, error } = await createUser(name, username, email, rawPassword, role);
+			const deviceName = req.body.deviceName;
+			const channelId = req.body.channelId;
+			const field = req.body.field;
+			const userId = req.body.userId;
+			const locationId = req.body.locationId;
+			const deviceAddress = req.body.deviceAddress;
+			const { device, error } = await createDevice(
+				deviceName,
+				channelId,
+				field,
+				userId,
+				locationId,
+				deviceAddress
+			);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ user });
+			return res.status(200).json({ device });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -32,9 +46,9 @@ const handler = async (req: Request, res: Response) => {
 	// run function to get all user
 	if (req.method === "GET" && !req.body.id) {
 		try {
-			const { users, error } = await getUsers();
+			const { devices, error } = await getDevices();
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ users });
+			return res.status(200).json({ devices });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -45,9 +59,9 @@ const handler = async (req: Request, res: Response) => {
 	if (req.method === "GET" && req.body.id) {
 		try {
 			const id = req.body.id;
-			const { user, error } = await getUserById(id);
+			const { device, error } = await getDeviceById(id);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ user });
+			return res.status(200).json({ device });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -57,10 +71,12 @@ const handler = async (req: Request, res: Response) => {
 	// run function to update user data by id
 	if (req.method === "PUT") {
 		try {
-			const data = req.body;
-			const { user, error } = await updateUser(data.id, data.name, data.email, data.password);
+			const id = req.body.id;
+			const address = req.body.address;
+			const details = req.body.details;
+			const { device, error } = await updateDevice(id, address, details);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ user });
+			return res.status(200).json({ device });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -71,7 +87,7 @@ const handler = async (req: Request, res: Response) => {
 	if (req.method === "DELETE") {
 		try {
 			const id = req.body.id;
-			const { error } = await deleteUser(id);
+			const { error } = await deleteDevice(id);
 
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
 			return res.status(200).json({ message: "User has been deleted!" });

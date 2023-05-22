@@ -48,10 +48,10 @@ enum UserRole {
 
 model User {
   id              String      @id @default(cuid()) 
-  name            String?     @db.VarChar(225)
-  username        String?     @unique @db.VarChar(225)
-  password        String?     @db.VarChar(225)
-  email           String?     @unique @db.VarChar(225)
+  name            String      @db.VarChar(225)
+  username        String      @unique @db.VarChar(225)
+  password        String      @db.VarChar(225)
+  email           String      @unique @db.VarChar(225)
   emailVerified   DateTime? 
   createAt        DateTime    @default(now())
   updateAt        DateTime    @updatedAt
@@ -66,29 +66,54 @@ model User {
 model Locations {
   id              String      @id @default(cuid())
   address         String      @unique
+  details         String?     @db.VarChar(225)
   userId          String
+  userName        String      @db.VarChar(225)
   createAt        DateTime    @default(now())
   updateAt        DateTime    @updatedAt
   devices         Devices[]
+  staf            Staf[]
   user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
 
 model Devices {
-  id              String      @id @default(cuid())
-  apiKey          String?     
-  deviceAddress   String
-  longitude       String?     @db.VarChar(225)
-  latitude        String?     @db.VarChar(225)
-  userId          String      
-  createAt        DateTime    @default(now())
-  updateAt        DateTime    @updatedAt
-  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  location        Locations   @relation(fields: [deviceAddress], references: [address], onDelete: Restrict, onUpdate: Cascade)
+  id                String      @id @default(cuid())
+  deviceName        String           
+  apiKey            String?     
+  channelId         String
+  field             Int
+  deviceAddress     String
+  locationId        String
+  userId            String      
+  createAt          DateTime    @default(now())
+  updateAt          DateTime    @updatedAt
+  user              User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  location          Locations   @relation(fields: [locationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 
-  @@index([deviceAddress])
+  @@index([locationId])
   @@index([userId])
+}
+
+model DevicePosition {
+  deviceId          String      @unique
+  apiKey            String
+  longitude         String?     @db.VarChar(225)
+  latitude          String?     @db.VarChar(225)
+}
+
+model Staf {
+  id                String     @id @default(cuid())
+  name              String     
+  details           String?    @db.VarChar(225)
+  stafLocation      String
+  phoneNumber       String     @unique
+  location          Locations   @relation(fields: [stafLocation], references: [address], onDelete: Restrict, onUpdate: Cascade)
+  createAt          DateTime   @default(now())
+  updateAt          DateTime   @updatedAt
+
+  @@index([stafLocation])
 }
 
 model VerificationToken {

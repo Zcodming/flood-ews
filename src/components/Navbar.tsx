@@ -1,54 +1,84 @@
-import SignOutButton from "@/button/SignOutButton";
-import ThemeToggle from "@/components/ThemeToggle";
-import { authOptions } from "@/library/auth";
-import { buttonVariants } from "@/ui/Button";
-import { getServerSession } from "next-auth";
-import Link from "next/link";
+"use client";
 
-const Navbar = async () => {
-	const session = await getServerSession(authOptions);
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import ThemeToggle from "./ThemeToggle";
+import SignOutButton from "./button/SignOutButton";
+import { buttonVariants } from "./ui/Button";
+import { FC } from "react";
+
+interface NavbarProps {
+	role: String;
+	name: String;
+	session: boolean;
+}
+
+const Navbar: FC<NavbarProps> = ({ role, name, session }) => {
+	const pathname = usePathname();
 
 	return (
-		<div className="fixed bg-transparent dark:bg-transparent z-40 top-0 left-0 right-0 h-20 mt-4 flex items-center justify-between">
-			<div className="sticky max-w-7xl w-full flex justify-between xl:ml-72 xl:w-9/12 md:ml-24 mr-4 pr-2 pl-4 py-4 rounded-xl backdrop-blur-md">
-				<Link href="/" className={buttonVariants({ variant: "link" }) + " xl:pl-20 xl:invisible"}>
-					Flood - Early Warning
-				</Link>
-
-				<div className="md:hidden">
-					<ThemeToggle />
-				</div>
-
-				<div className="hidden md:flex gap-4">
-					<ThemeToggle />
-					<Link href="/documentation" className={buttonVariants({ variant: "ghost" })}>
-						Documentation
-					</Link>
-
-					{session ? (
-						<>
-							<Link
-								href="/dashboard"
-								className={buttonVariants({
-									variant: "ghost",
-								})}>
-								Dashboard
-							</Link>
-							<SignOutButton />
-						</>
-					) : (
+		<>
+			{pathname !== "/restricted" ? (
+				<div className="fixed container bg-transparent dark:bg-transparent z-40 top-0 left-0 right-0 h-20 mt-4 flex items-center justify-between">
+					<div
+						className={
+							"sticky max-w-7xl w-full flex justify-between mr-4 pr-2 pl-4 py-4 rounded-xl backdrop-blur-md " +
+							(pathname == "/" || "/login" ? " " : " xl:ml-72 xl:w-9/12 md:ml-24 ")
+						}>
 						<Link
-							className={buttonVariants({
-								variant: "default",
-								className: "w-fit",
-							})}
-							href="/login">
-							Login
+							href="/"
+							className={
+								buttonVariants({
+									variant: "link",
+								}) + (pathname == "/" || "/login" ? " " : " xl:pl-20 invisible ")
+							}>
+							<Image
+								src="/logo/logo_fews.png"
+								alt="logo"
+								style={{ objectFit: "initial" }}
+								width={30}
+								height={30}
+							/>
+							<span className="hidden xl:block mr-2 px-2">Flood - Early Warning</span>
 						</Link>
-					)}
+
+						<div className="md:hidden">
+							<ThemeToggle />
+						</div>
+
+						<div className="hidden md:flex gap-4">
+							<ThemeToggle />
+							{/* <Link href="/documentation" className={buttonVariants({ variant: "ghost" })}>
+						Documentation
+					</Link> */}
+
+							{session ? (
+								<>
+									<Link
+										href="/dashboard"
+										className={buttonVariants({
+											variant: "ghost",
+										})}>
+										Dashboard
+									</Link>
+									<SignOutButton />
+								</>
+							) : (
+								<Link
+									className={buttonVariants({
+										variant: "default",
+										className: "w-fit",
+									})}
+									href="/login">
+									Login
+								</Link>
+							)}
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
+			) : null}
+		</>
 	);
 };
 

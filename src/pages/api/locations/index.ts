@@ -1,4 +1,10 @@
-import { createUser, deleteUser, getUserById, getUsers, updateUser } from "@/library/prisma/users.controller";
+import {
+	createLocation,
+	deleteLocation,
+	getLocationById,
+	getLocations,
+	updateLocation,
+} from "@/library/prisma/locations.controller";
 import { Request, Response } from "express";
 
 // error message function for unknown variable error
@@ -16,14 +22,13 @@ const handler = async (req: Request, res: Response) => {
 	// run function to create new user
 	if (req.method === "POST") {
 		try {
-			const name = req.body.name;
-			const username = req.body.username;
-			const email = req.body.email;
-			const rawPassword = req.body.password;
-			const role = req.body.role;
-			const { user, error } = await createUser(name, username, email, rawPassword, role);
+			const address = req.body.address;
+			const details = req.body.details;
+			const userId = req.body.userId;
+			const userName = req.body.userName;
+			const { location, error } = await createLocation(address, details, userId, userName);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ user });
+			return res.status(200).json({ location });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -32,9 +37,9 @@ const handler = async (req: Request, res: Response) => {
 	// run function to get all user
 	if (req.method === "GET" && !req.body.id) {
 		try {
-			const { users, error } = await getUsers();
+			const { locations, error } = await getLocations();
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ users });
+			return res.status(200).json({ locations });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -45,9 +50,9 @@ const handler = async (req: Request, res: Response) => {
 	if (req.method === "GET" && req.body.id) {
 		try {
 			const id = req.body.id;
-			const { user, error } = await getUserById(id);
+			const { location, error } = await getLocationById(id);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ user });
+			return res.status(200).json({ location });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -57,10 +62,12 @@ const handler = async (req: Request, res: Response) => {
 	// run function to update user data by id
 	if (req.method === "PUT") {
 		try {
-			const data = req.body;
-			const { user, error } = await updateUser(data.id, data.name, data.email, data.password);
+			const id = req.body.id;
+			const address = req.body.address;
+			const details = req.body.details;
+			const { location, error } = await updateLocation(id, address, details);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ user });
+			return res.status(200).json({ location });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
@@ -71,7 +78,7 @@ const handler = async (req: Request, res: Response) => {
 	if (req.method === "DELETE") {
 		try {
 			const id = req.body.id;
-			const { error } = await deleteUser(id);
+			const { error } = await deleteLocation(id);
 
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
 			return res.status(200).json({ message: "User has been deleted!" });

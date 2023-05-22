@@ -1,25 +1,20 @@
-import Table from "@/components/Table";
+import Icons from "@/components/Icons";
+import LocationForm from "@/components/form/LocationForm";
 import { buttonVariants } from "@/components/ui/Button";
 import LargeHeading from "@/components/ui/LargeHeading";
-import { authOptions } from "@/library/auth";
 import { db } from "@/library/db";
 import { formatDistance } from "date-fns";
 import { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-	title: "Flood Early Warning | Account",
-	description: "Setting Account",
+	title: "Flood-EWS | Create Location",
+	description: "Create Location",
 };
 
+interface pageProps {}
+
 const page = async () => {
-	const user = await getServerSession(authOptions);
-	if (!user) return notFound();
-
-	if (user?.user.role !== "ADMIN") return notFound();
-
 	const userRequests = await db.user.findMany();
 
 	const serializableRequests = userRequests.map((req) => ({
@@ -32,18 +27,19 @@ const page = async () => {
 		<div className="relative ml-4 mr-12 mt-4">
 			<div className="flex flex-warp justify-between">
 				<LargeHeading className="items-start" size="sm">
-					This is Account page
+					Add New Location
 				</LargeHeading>
 				<Link
-					href={"/account/create-user"}
-					className={buttonVariants({ variant: "green" }) + " items-end"}>
-					<span>Create User</span>
+					href={"/device"}
+					className={
+						buttonVariants({ variant: "default" }) + " items-end flex flex-wrap justify-between"
+					}>
+					<Icons.ChevronLeft />
+					<span>Back</span>
 				</Link>
 			</div>
-			<div className="relative mt-8">
-				<div className="flex flex-col gap-6 mt-8 mr-8 max-w-4xl">
-					<Table userRequests={serializableRequests} />
-				</div>
+			<div className="relative mt-8 bg-slate-600 rounded-lg">
+				<LocationForm userRequests={serializableRequests} />
 			</div>
 		</div>
 	);

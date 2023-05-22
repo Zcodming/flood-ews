@@ -25,7 +25,7 @@ export default function Home() {
 						prepare for flooding. Our technology and team can help you stay safe during floods.
 						Learn more about our services and how we can help you stay ahead of the flood.
 					</Paragraph>
-					<div className="relative w-full max-w-lg lg:max-w-3xl  lg:left-1/2 aspect-square lg:absolute">
+					{/* <div className="relative w-full max-w-lg lg:max-w-3xl  lg:left-1/2 aspect-square lg:absolute">
 						<Image
 							priority
 							className="img-shadow"
@@ -35,7 +35,7 @@ export default function Home() {
 							src="/typewriter.png"
 							alt="typewriter"
 						/>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</div>

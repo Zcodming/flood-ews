@@ -10,6 +10,7 @@ export const buttonVariants = cva(
 			variant: {
 				default:
 					"bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100",
+				green: "bg-green-500 text-white hover:bg-green-400 dark:bg-green-500 dark:text-white dark:hover:bg-green-400",
 				outline:
 					"bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100 border border-slate-200 hover:bg-slate-100 dark:hover:border-slate-700",
 				ghost: "bg-transparent hover:bg-white dark:hover:bg-slate-800 dark:text-slate-400 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
@@ -22,7 +23,7 @@ export const buttonVariants = cva(
 			},
 			active: {
 				default: "hover:bg-slate-100",
-				on: "bg-white dark:bg-slate-800 text-blue-500 dark:text-blue-500",
+				on: "bg-white dark:bg-slate-800 text-blue-500 dark:text-blue-400",
 				off: "hover:bg-slate-100",
 			},
 		},

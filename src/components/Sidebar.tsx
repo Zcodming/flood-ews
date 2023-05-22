@@ -4,13 +4,17 @@ import MenuToggler from "./MenuToggler";
 
 const Sidebar = async () => {
 	const session = await getServerSession(authOptions);
+	let isAdmin = true;
 
+	if (session?.user.role !== "ADMIN") {
+		isAdmin = false;
+	}
 	return (
 		<>
 			{session ? (
 				<>
 					{/** Menu Toggler */}
-					<MenuToggler />
+					<MenuToggler isAdmin={isAdmin} />
 				</>
 			) : (
 				<>
