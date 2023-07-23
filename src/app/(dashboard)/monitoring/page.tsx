@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-	title: "Flood Early Warning | Monitoring",
+	title: "Flood-EWS | Monitoring",
 	description: "Monitoring Water Height",
 };
 

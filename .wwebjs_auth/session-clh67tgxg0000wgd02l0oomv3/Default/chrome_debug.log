@@ -1,0 +1,170 @@
+[0723/180238.886:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/180238.886:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/180241.264:INFO:CONSOLE(7)] "Another connection wants to delete database 'wawc'. Closing db now to resume the delete request.", source: https://web.whatsapp.com/vendor1~app.be50aaad33253076fc3f.js (7)
+[0723/180243.208:INFO:CONSOLE(43)] "Uncaught (in promise) TypeError: Failed to execute 'put' on 'Cache': Partial response (status code 206) is unsupported", source: https://web.whatsapp.com/serviceworker.js (43)
+[0723/182141.478:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/182141.479:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/182141.479:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/182141.479:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/182143.503:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/182143.504:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/182143.504:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/182143.848:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/182143.848:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/182144.504:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/182150.079:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/182152.984:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/182154.997:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/182154.997:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/182159.086:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/182201.109:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/182201.109:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/182205.238:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/182719.941:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/182719.942:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/182719.942:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/182719.942:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/182721.960:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/182721.960:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/182721.960:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/182722.372:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/182722.372:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/182722.968:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/182728.500:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/182731.436:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/182733.459:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/182733.483:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/182737.620:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/182739.632:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/182739.633:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/182743.753:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/182947.039:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/182947.039:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/182947.039:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/182947.039:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/182949.062:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/182949.062:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/182949.062:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/182949.647:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/182949.647:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/182950.065:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/182956.444:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/182959.431:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/183001.501:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/183001.501:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/183005.668:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/183007.709:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/183007.709:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/183011.895:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/183046.480:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/183046.480:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/183046.480:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/183046.480:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/183048.146:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/183048.146:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/183048.146:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/183048.880:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/183048.880:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/183049.152:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/183055.064:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/183058.298:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/183100.323:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/183100.323:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/183104.413:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/183106.467:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/183106.467:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/183110.627:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/183615.851:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/183615.852:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/183615.852:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/183615.852:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/183617.887:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/183617.887:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/183617.887:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/183618.249:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/183618.249:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/183618.886:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/183625.777:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/183628.835:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/183630.863:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/183630.863:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/183635.002:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/183637.030:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/183637.030:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/183641.215:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/183642.886:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/183642.887:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/183642.887:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/183642.887:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/184158.085:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184158.085:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/184158.086:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184158.086:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/184200.189:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184200.189:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/184200.189:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184200.889:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/184200.889:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/184201.118:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/184209.151:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/184212.251:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/184214.272:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184214.272:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184218.407:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184220.450:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184220.450:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184224.100:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184224.101:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/184224.101:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184224.101:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/184224.624:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184226.042:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184226.042:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/184226.042:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184226.421:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/184226.421:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/184227.053:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/184235.801:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/184238.837:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/184240.902:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184240.902:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184245.039:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184247.171:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184247.171:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184252.256:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184350.921:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184350.926:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/184350.926:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184350.926:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/184353.195:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184353.196:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/184353.196:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184354.064:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/184356.082:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/184356.083:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/184410.065:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/184413.817:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/184416.019:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184416.020:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184419.420:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184419.428:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\old_GPUCache_000
+[0723/184419.428:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184419.428:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/184421.183:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184422.414:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/184422.794:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/184422.795:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\Cache\old_Cache_Data_000
+[0723/184422.795:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/184423.269:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184423.269:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184424.697:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/184424.698:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/184428.002:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184438.783:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/184443.033:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/184445.517:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184445.517:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184450.034:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/184452.213:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/184452.213:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/184456.914:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.

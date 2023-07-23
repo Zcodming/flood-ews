@@ -49,7 +49,10 @@ export async function getUsers() {
 // find specific user from users table
 export async function getUserById(id: string) {
 	try {
-		const user = await prisma.user.findUnique({ where: { id } });
+		const user = await prisma.user.findUnique({
+			where: { id },
+			select: { id: true, name: true, email: true, role: true },
+		});
 		return { user };
 	} catch (error) {
 		return { error };

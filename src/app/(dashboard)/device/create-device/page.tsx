@@ -4,7 +4,13 @@ import { buttonVariants } from "@/components/ui/Button";
 import LargeHeading from "@/components/ui/LargeHeading";
 import { db } from "@/library/db";
 import { formatDistance } from "date-fns";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+	title: "Flood-EWS | Add Device",
+	description: "Add device page",
+};
 
 export default async function CreateLocationPage({ searchParams }: { searchParams: any }) {
 	const locationRequests = await db.locations.findMany();

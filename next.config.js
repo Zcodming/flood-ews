@@ -4,6 +4,7 @@ const nextConfig = {
 		appDir: true,
 		serverComponentsExternalPackages: ["@prisma/client", "bcrypt"],
 	},
+	// output: { export: any },
 };
 
 module.exports = nextConfig;

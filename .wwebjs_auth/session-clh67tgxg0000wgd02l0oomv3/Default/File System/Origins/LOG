@@ -1,0 +1,4 @@
+2023/07/23-18:44:53.381 43a8 Log #3: 3 ops saved to Table #4 OK
+2023/07/23-18:44:54.402 43a8 Archiving D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/000003.log: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/000003.log: Could not rename file: File currently in use. (ChromeMethodBFE: 14::RenameFile::2)
+2023/07/23-18:44:54.415 43a8 Table #4: 3 entries OK
+2023/07/23-18:44:55.495 43a8 Archiving D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/MANIFEST-000001: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clh67tgxg0000wgd02l0oomv3\Default\File System\Origins/MANIFEST-000001: Could not rename file: File currently in use. (ChromeMethodBFE: 14::RenameFile::2)

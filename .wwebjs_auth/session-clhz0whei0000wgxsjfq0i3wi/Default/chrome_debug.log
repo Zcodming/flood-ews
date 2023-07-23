@@ -1,0 +1,22 @@
+[0723/185146.180:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/185146.181:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/185214.566:INFO:CONSOLE(7)] "Another connection wants to delete database 'wawc'. Closing db now to resume the delete request.", source: https://web.whatsapp.com/vendor1~app.be50aaad33253076fc3f.js (7)
+[0723/185256.208:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/185256.209:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clhz0whei0000wgxsjfq0i3wi\Default\GPUCache to D:\Projects\flood-ews\.wwebjs_auth\session-clhz0whei0000wgxsjfq0i3wi\Default\old_GPUCache_000
+[0723/185256.245:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/185256.245:ERROR:shader_disk_cache.cc(612)] Shader Cache Creation failed: -2
+[0723/185259.233:ERROR:service_worker_storage.cc(1904)] Failed to delete the database: Database IO error
+[0723/185303.265:ERROR:cache_util_win.cc(20)] Unable to move the cache: Access is denied. (0x5)
+[0723/185303.265:ERROR:cache_util.cc(146)] Unable to move cache folder D:\Projects\flood-ews\.wwebjs_auth\session-clhz0whei0000wgxsjfq0i3wi\Default\Cache\Cache_Data to D:\Projects\flood-ews\.wwebjs_auth\session-clhz0whei0000wgxsjfq0i3wi\Default\Cache\old_Cache_Data_000
+[0723/185303.265:ERROR:disk_cache.cc(192)] Unable to create cache
+[0723/185304.466:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'ambient-light-sensor'.", source:  (0)
+[0723/185304.466:INFO:CONSOLE(0)] "Error with Permissions-Policy header: Unrecognized feature: 'bluetooth'.", source:  (0)
+[0723/185332.712:ERROR:quota_database.cc(823)] Could not open the quota database, resetting.
+[0723/185339.761:ERROR:quota_database.cc(825)] Failed to reset the quota database.
+[0723/185342.029:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clhz0whei0000wgxsjfq0i3wi\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/185342.029:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/185346.746:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.
+[0723/185348.862:ERROR:sandbox_origin_database.cc(190)] SandboxOriginDatabase failed at: Init@storage/browser/file_system/sandbox_origin_database.cc:94 with error: IO error: D:\Projects\flood-ews\.wwebjs_auth\session-clhz0whei0000wgxsjfq0i3wi\Default\File System\Origins/LOCK: File currently in use. (ChromeMethodBFE: 15::LockFile::2)
+[0723/185348.862:WARNING:sandbox_origin_database.cc(106)] Attempting to repair SandboxOriginDatabase.
+[0723/185352.128:INFO:CONSOLE(93)] "Uncaught (in promise) InvalidStateError: Failed to register a ServiceWorker: The document is in an invalid state.", source: https://web.whatsapp.com/app.5625fae9b98ebab166c8.js (93)
+[0723/185353.747:WARNING:sandbox_origin_database.cc(140)] Failed to repair SandboxOriginDatabase.

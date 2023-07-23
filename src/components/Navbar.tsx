@@ -1,12 +1,13 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FC } from "react";
 import ThemeToggle from "./ThemeToggle";
 import SignOutButton from "./button/SignOutButton";
 import { buttonVariants } from "./ui/Button";
-import { FC } from "react";
+import Paragraph from "./ui/Paragraph";
 
 interface NavbarProps {
 	role: String;
@@ -20,10 +21,10 @@ const Navbar: FC<NavbarProps> = ({ role, name, session }) => {
 	return (
 		<>
 			{pathname !== "/restricted" ? (
-				<div className="fixed container bg-transparent dark:bg-transparent z-40 top-0 left-0 right-0 h-20 mt-4 flex items-center justify-between">
+				<nav className="fixed container bg-transparent dark:bg-transparent z-40 top-0 left-0 right-0 h-20 mt-4 flex items-center justify-between">
 					<div
 						className={
-							"sticky max-w-7xl w-full flex justify-between mr-4 pr-2 pl-4 py-4 rounded-xl backdrop-blur-md " +
+							"sticky max-w-7xl w-full flex justify-between mr-4 pr-2 pl-4 py-4 rounded-xl backdrop-blur-md dark:backdrop-blur-lg  " +
 							(pathname == "/" || "/login" ? " " : " xl:ml-72 xl:w-9/12 md:ml-24 ")
 						}>
 						<Link
@@ -62,6 +63,11 @@ const Navbar: FC<NavbarProps> = ({ role, name, session }) => {
 										})}>
 										Dashboard
 									</Link>
+									<div className="mr-3 my-2 dark:text-slate-500">
+										<Paragraph size={"sm"}>
+											<b>Hello, {role.toLowerCase()}</b> : {name}
+										</Paragraph>
+									</div>
 									<SignOutButton />
 								</>
 							) : (
@@ -76,7 +82,7 @@ const Navbar: FC<NavbarProps> = ({ role, name, session }) => {
 							)}
 						</div>
 					</div>
-				</div>
+				</nav>
 			) : null}
 		</>
 	);

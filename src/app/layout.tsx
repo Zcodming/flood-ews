@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toast";
 import { authOptions } from "@/library/auth";
@@ -31,8 +32,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
 					{/* @ts-expect-error Server Component */}
 					<Navbar role={role} name={name} session={session} />
 
-					{children}
+					{/* Content */}
+					<section className="h-screen pt-20 w-full max-w-7xl">{children}</section>
+					{/* --------*/}
+
 					<Toaster position="bottom-right" />
+					<Footer />
 				</Providers>
 				{/* Allow for more height on mobile devices */}
 				<div className="h-40 md:hidden"></div>

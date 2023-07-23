@@ -34,25 +34,25 @@ const handler = async (req: Request, res: Response) => {
 		}
 	}
 
+	// bring id user
+	// run function to get user by id
+	if (req.method === "GET" && req.body) {
+		try {
+			const id = req.body.id;
+			const { location, error } = await getLocationById(id);
+			if (error) throw new Error(getErrorMessage(error), { cause: error });
+			return res.status(200).json({ location });
+		} catch (error) {
+			return res.status(500).json({ error: getErrorMessage(error) });
+		}
+	}
+
 	// run function to get all user
 	if (req.method === "GET" && !req.body.id) {
 		try {
 			const { locations, error } = await getLocations();
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
 			return res.status(200).json({ locations });
-		} catch (error) {
-			return res.status(500).json({ error: getErrorMessage(error) });
-		}
-	}
-
-	// bring id user
-	// run function to get user by id
-	if (req.method === "GET" && req.body.id) {
-		try {
-			const id = req.body.id;
-			const { location, error } = await getLocationById(id);
-			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ location });
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}

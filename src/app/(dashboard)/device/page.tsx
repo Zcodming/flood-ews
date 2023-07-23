@@ -8,7 +8,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-	title: "Flood Early Warning | Device",
+	title: "Flood-EWS | Device",
 	description: "Device Setup",
 };
 
@@ -40,7 +40,7 @@ const page = async () => {
 						<span>No Location Found</span>
 						<span>Click to Add Location</span>
 					</Link> */}
-				{/* @ts-expect-error Server Component */}
+				
 				<LocationsTable />
 			</div>
 		</div>

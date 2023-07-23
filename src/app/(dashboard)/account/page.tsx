@@ -10,7 +10,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export const metadata: Metadata = {
-	title: "Flood Early Warning | Account",
+	title: "Flood-EWS | Account",
 	description: "Setting Account",
 };
 

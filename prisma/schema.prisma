@@ -47,7 +47,7 @@ enum UserRole {
 }
 
 model User {
-  id              String      @id @default(cuid()) 
+  id              String      @id @default(cuid())
   name            String      @db.VarChar(225)
   username        String      @unique @db.VarChar(225)
   password        String      @db.VarChar(225)
@@ -108,12 +108,20 @@ model Staf {
   name              String     
   details           String?    @db.VarChar(225)
   stafLocation      String
+  locationId        String
   phoneNumber       String     @unique
-  location          Locations   @relation(fields: [stafLocation], references: [address], onDelete: Restrict, onUpdate: Cascade)
+  location          Locations  @relation(fields: [locationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   createAt          DateTime   @default(now())
   updateAt          DateTime   @updatedAt
 
-  @@index([stafLocation])
+  @@index([locationId])
+}
+
+model Store {
+  id                String     @id @default(cuid())
+  clientId          String     @unique
+  createAt          DateTime   @default(now())
+  updateAt          DateTime   @updatedAt
 }
 
 model VerificationToken {

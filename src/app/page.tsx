@@ -5,7 +5,7 @@ import { Inter } from "next/font/google";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-	title: "Flood Early Warning System",
+	title: "Flood-EWS",
 	description: "Real Time Flood Notification Warning With WhatsApp API",
 };
 
@@ -13,8 +13,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
 	return (
-		<div className="relative h-screen flex item-center justify-center overflow-x-hidden">
-			<div className="container pt-32 max-w-7xl mx-auto w-full h-full">
+		<div className="relative h-full flex item-center justify-center overflow-x-hidden">
+			<div className="container max-w-7xl mx-auto w-full h-auto">
 				<div className="h-full gap-6 flex flex-col justify-start lg:justify-center items-center lg:items-start">
 					<LargeHeading size="lg" className="three-d text-black dark:text-light-blue">
 						Be flood-ready
