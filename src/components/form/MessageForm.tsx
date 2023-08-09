@@ -5,6 +5,7 @@ import TextBox from "@/components/ui/TextBox";
 import Button from "@/ui/Button";
 import { toast } from "@/ui/Toast";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import React, { FC } from "react";
 
 interface MessageFormProps {}
@@ -15,27 +16,46 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
 		message: "",
 	});
 
-	const onSubmit = async (e: { preventDefault: () => void }) => {
-		e.preventDefault();
+	const router = useRouter();
 
+	const onSubmit = async () => {
 		setIsLoading(true);
 
 		try {
 			await axios.post("http://localhost:3000/api/whatsapp/", formValue, {
-				params: { id: "clh67tgxg0000wgd02l0oomv3" },
+				params: { id: "clh67tgxg0000wgd02l0oomv3" }, // Admin
+				// params: { id: "clhz0whei0000wgxsjfq0i3wi" }, // user Ptk
 			});
-			setIsLoading(false);
 
-			return toast({
-				title: "Success",
-				message: "Message Send",
-				type: "success",
-			});
+			setTimeout(() => {
+				setIsLoading(false);
+				toast({
+					title: "Success",
+					message: "Message Send Successfully",
+					type: "success",
+				});
+			}, 30000);
+
+			// if (data == "Message Send") {
+			// 	setIsLoading(false);
+			// 	toast({
+			// 		title: "Success",
+			// 		message: "Message Send Successfully",
+			// 		type: "success",
+			// 	});
+
+			// 	//this will reload the page without doing SSR
+			// 	return router.refresh();
+			// }
+
+			// if (data == "Failed to Send") {
+			// 	throw new Error();
+			// }
 		} catch (error) {
 			setIsLoading(false);
 			return toast({
 				title: "Something wrong",
-				message: "Error",
+				message: "Failed to Send the Massage",
 				type: "error",
 			});
 		}

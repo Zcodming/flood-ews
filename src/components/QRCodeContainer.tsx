@@ -5,6 +5,8 @@ import axios from "axios";
 import React, { FC } from "react";
 import QRCode from "react-qr-code";
 import { toast } from "./ui/Toast";
+import LargeHeading from "./ui/LargeHeading";
+import Paragraph from "./ui/Paragraph";
 
 interface QRCodeContainerProps {
 	userId: string;
@@ -16,10 +18,11 @@ const QRCodeContainer: FC<QRCodeContainerProps> = ({ userId }) => {
 	const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 	// const data: any = await checkWhatsappSession(user.user.id);
-	const { data, isLoading, isError, error } = useQuery({
+	const { data, refetch, isLoading, isError, error } = useQuery({
 		queryKey: ["get-qr-code"],
+		// data not refetch infinitely
+		cacheTime: Infinity,
 		staleTime: Infinity,
-		cacheTime: Infinity, // data not refetch infinitely
 		queryFn: async () => {
 			await wait(1000);
 			const { data } = await axios.get(`http://localhost:3000/api/whatsapp`, {
@@ -33,21 +36,6 @@ const QRCodeContainer: FC<QRCodeContainerProps> = ({ userId }) => {
 		// manually refetch
 		refetch();
 	};
-
-	const { refetch } = useQuery({
-		queryKey: ["send-message"],
-		refetchOnWindowFocus: false,
-		enabled: false, // disable this query from automatically running
-		queryFn: async () => {
-			await wait(1000);
-			try {
-				await axios.post(`http://localhost:3000/api/whatsapp`, message);
-				toast({ title: "Success!", message: "Notification Message Sent!", type: "success" });
-			} catch (error) {
-				toast({ title: "Error!", message: "Notification Message Failed to Send!", type: "error" });
-			}
-		},
-	});
 
 	// <QRCode value={fetchQRCode.data} />;
 	return (
@@ -63,18 +51,28 @@ const QRCodeContainer: FC<QRCodeContainerProps> = ({ userId }) => {
 					</>
 				) : (
 					<>
-						<QRCode value={data} />
-						<br />
-						<p>{JSON.stringify(data)}</p>
+						{data == "Client is Ready!" ? null : (
+							<>
+								<QRCode value={data} />
+								<br />
+							</>
+						)}
+						<Paragraph className="text-left font-bold">{data}</Paragraph>
 					</>
 				)}
 			</div>
 			{/* <p>{JSON.stringify(data)}</p> */}
-			<div>
-				<button onClick={handleClick} className="bg-slate-800 text-white rounded-md px-4 py-2">
-					Send Message
-				</button>
-			</div>
+			{data == "Client is Ready!" ? null : (
+				<>
+					<div>
+						<button
+							onClick={handleClick}
+							className="bg-slate-800 text-white rounded-md px-4 py-2">
+							Refresh QR Code
+						</button>
+					</div>
+				</>
+			)}
 		</>
 	);
 };
