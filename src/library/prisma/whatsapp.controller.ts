@@ -24,10 +24,9 @@ export async function checkWhatsappSession(id: string, res: any) {
 			client.on("qr", (qr: string) => {
 				resolve(qr);
 				console.log("QR Code:", qr);
-			});
 
-			if (!qr) setTimeout(() => reject(new Error("QR Code wasn't emitted in 1 minutes. ")), 60000);
-			
+				if (!qr) setTimeout(() => reject(new Error("QR Code wasn't emitted in 1 minutes. ")), 60000);
+			});
 		});
 
 		res.send(qrCode);
