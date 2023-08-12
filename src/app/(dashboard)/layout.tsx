@@ -1,13 +1,22 @@
 import Sidebar from "@/components/Sidebar";
 import type { ReactNode } from "react";
+import { authOptions } from "@/library/auth";
+import { getServerSession } from "next-auth";
+import React from "react";
 
-export default function Layout({ children }: { children: ReactNode }) {
+export default async function Layout({ children }: { children: ReactNode }) {
+	const session = await getServerSession(authOptions);
+	let isAdmin = true;
+
+	if (session?.user.role !== "ADMIN") {
+		isAdmin = false;
+	}
+
 	return (
-		<section className="pt-20">
-			<div className="max-w-7xl mr-auto mt-12 xl:ml-72 md:ml-24">{children}</div>
+		<>
+			<Sidebar session={session} isAdmin={isAdmin} />
 
-			{/* @ts-expect-error Server Component */}
-			<Sidebar />
-		</section>
+			<article className="float-right w-9/12 pt-4 mr-auto mt-3">{children}</article>
+		</>
 	);
 }

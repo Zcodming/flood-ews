@@ -9,10 +9,12 @@ export default withAuth(
 		// manage route protection
 		const token = await getToken({ req });
 		const isAuth = !!token;
+		const isAdmin = token?.role;
 
 		const isAuthPage = pathname.startsWith("/login");
 
-		const sensitiveRoute = ["/dashboard", "/monitoring", "/account"];
+		const sensitiveRoute = ["/dashboard", "/monitoring", "/account", "/device", "location"]; // , "/api/users"
+		const restrictedRoute = ["/api/users", "/api/locations"];
 
 		if (isAuthPage) {
 			if (isAuth) {
@@ -25,6 +27,10 @@ export default withAuth(
 		if (!isAuth && sensitiveRoute.some((route) => pathname.startsWith(route))) {
 			return NextResponse.redirect(new URL("/login", req.url));
 		}
+
+		// if (isAdmin !== "ADMIN" && restrictedRoute.some((route) => pathname.startsWith(route))) {
+		// 	return NextResponse.redirect(new URL("/restricted", req.url));
+		// }
 	},
 	{
 		callbacks: {

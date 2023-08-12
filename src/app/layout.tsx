@@ -1,8 +1,11 @@
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toast";
+import { authOptions } from "@/library/auth";
 import { cn } from "@/library/utils";
 import "@/styles/globals.css";
+import { getServerSession } from "next-auth";
 import { Inter } from "next/font/google";
 
 export const metadata = {
@@ -11,16 +14,30 @@ export const metadata = {
 };
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+	const user = await getServerSession(authOptions);
+
+	const role = user?.user.role;
+	const name = user?.user.name;
+	let session = false;
+
+	if (user) {
+		session = true;
+	}
+
 	return (
 		<html lang="en" className={cn("bg-white text-slate-900 antialiased", inter.className)}>
 			<body className="min-h-screen bg-slate-50 dark:bg-slate-900 antialiased">
 				<Providers>
 					{/* @ts-expect-error Server Component */}
-					<Navbar />
+					<Navbar role={role} name={name} session={session} />
 
-					{children}
+					{/* Content */}
+					<section className="h-screen pt-20 w-full max-w-7xl">{children}</section>
+					{/* --------*/}
+
 					<Toaster position="bottom-right" />
+					<Footer />
 				</Providers>
 				{/* Allow for more height on mobile devices */}
 				<div className="h-40 md:hidden"></div>

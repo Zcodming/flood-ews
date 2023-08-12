@@ -88,10 +88,11 @@ const columns = columnsDraft.map((col) => {
 
 type ModifiedRequestType<K extends keyof User> = Omit<User, K> & {
 	createAt: string;
+	updateAt: string;
 };
 
 interface TableProps {
-	userRequests: ModifiedRequestType<"createAt">[];
+	userRequests: ModifiedRequestType<"createAt" | "updateAt">[];
 }
 
 const Table: FC<TableProps> = ({ userRequests }) => {

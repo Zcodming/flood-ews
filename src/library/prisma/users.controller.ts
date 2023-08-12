@@ -1,5 +1,7 @@
 import { toast } from "@/components/ui/Toast";
 import prisma from ".";
+import bcrypt from "bcryptjs";
+import { UserRole } from "@prisma/client";
 
 // error message function for unknown variable error
 function getErrorMessage(error: unknown) {
@@ -8,9 +10,16 @@ function getErrorMessage(error: unknown) {
 }
 
 // create new user to users table
-export async function createUser(user: string) {
+export async function createUser(
+	name: string,
+	username: string,
+	email: string,
+	rawPassword: string,
+	role: UserRole
+) {
 	try {
-		const userFromDB = await prisma.user.create({ data: user });
+		const password = await bcrypt.hashSync(rawPassword, 10);
+		const userFromDB = await prisma.user.create({ data: { name, username, email, password, role } });
 		toast({
 			title: "User Created",
 			message: "New user created successfully",
@@ -40,7 +49,10 @@ export async function getUsers() {
 // find specific user from users table
 export async function getUserById(id: string) {
 	try {
-		const user = await prisma.user.findUnique({ where: { id } });
+		const user = await prisma.user.findUnique({
+			where: { id },
+			select: { id: true, name: true, email: true, role: true },
+		});
 		return { user };
 	} catch (error) {
 		return { error };

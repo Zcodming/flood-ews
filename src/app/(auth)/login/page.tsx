@@ -33,9 +33,9 @@ const page: FC = () => {
 					{/* Make Login Card  */}
 					<CredentialsForm />
 
-					<Paragraph>or Sign In using your Google Account</Paragraph>
+					{/* <Paragraph>or Sign In using your Google Account</Paragraph>
 
-					<GoogleAuthButton />
+					<GoogleAuthButton /> */}
 				</div>
 			</div>
 		</div>

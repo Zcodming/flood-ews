@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es5",
-		"lib": ["dom", "dom.iterable", "esnext"],
+		"lib": ["dom", "dom.iterable", "esnext", "es2015"],
 		"allowJs": true,
 		"skipLibCheck": true,
 		"strict": true,
@@ -25,7 +25,8 @@
 			"@/components/*": ["./src/components/*"],
 			"@/library/*": ["./src/library/*"],
 			"@/ui/*": ["./src/components/ui/*"],
-			"@/button/*": ["./src/components/button/*"]
+			"@/button/*": ["./src/components/button/*"],
+			"@/utils/*": ["./src/utils/*"]
 		}
 	},
 	"include": [

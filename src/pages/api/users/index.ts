@@ -16,8 +16,12 @@ const handler = async (req: Request, res: Response) => {
 	// run function to create new user
 	if (req.method === "POST") {
 		try {
-			const data = req.body;
-			const { user, error } = await createUser(data);
+			const name = req.body.name;
+			const username = req.body.username;
+			const email = req.body.email;
+			const rawPassword = req.body.password;
+			const role = req.body.role;
+			const { user, error } = await createUser(name, username, email, rawPassword, role);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
 			return res.status(200).json({ user });
 		} catch (error) {
@@ -26,21 +30,21 @@ const handler = async (req: Request, res: Response) => {
 	}
 
 	// run function to get all user
-	if (req.method === "GET" && !req.body.id) {
-		try {
-			const { users, error } = await getUsers();
-			if (error) throw new Error(getErrorMessage(error), { cause: error });
-			return res.status(200).json({ users });
-		} catch (error) {
-			return res.status(500).json({ error: getErrorMessage(error) });
-		}
-	}
+	// if (req.method === "GET" && !req.body.id) {
+	// 	try {
+	// 		const { users, error } = await getUsers();
+	// 		if (error) throw new Error(getErrorMessage(error), { cause: error });
+	// 		return res.status(200).json({ users });
+	// 	} catch (error) {
+	// 		return res.status(500).json({ error: getErrorMessage(error) });
+	// 	}
+	// }
 
 	// bring id user
 	// run function to get user by id
-	if (req.method === "GET" && req.body.id) {
+	if (req.method == "GET") {
 		try {
-			const id = req.body.id;
+			const id = req.query.id as string;
 			const { user, error } = await getUserById(id);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
 			return res.status(200).json({ user });
