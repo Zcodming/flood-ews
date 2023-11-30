@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
 		"target": "es5",
+		"module": "ESNext",
 		"lib": ["dom", "dom.iterable", "esnext", "es2015"],
 		"allowJs": true,
 		"skipLibCheck": true,
@@ -8,7 +9,6 @@
 		"forceConsistentCasingInFileNames": true,
 		"noEmit": true,
 		"esModuleInterop": true,
-		"module": "esnext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"isolatedModules": true,
@@ -30,11 +30,15 @@
 		}
 	},
 	"include": [
+		"global.d.ts",
 		"next-env.d.ts",
 		"**/*.ts",
 		"**/*.tsx",
 		".next/types/**/*.ts",
-		"src/pages/api/auth/[...nextauth].js"
+		"src/pages/api/auth/[...nextauth].js",
+		"server.js",
+		"whatsapp.js",
+		"src/library/wa-webjs/whatsapp.controller.ts"
 	],
 	"exclude": ["node_modules"]
 }

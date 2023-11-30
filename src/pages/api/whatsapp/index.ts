@@ -1,4 +1,4 @@
-import { checkWhatsappSession, sendMessage } from "@/library/prisma/whatsapp.controller";
+import { checkWhatsappSession, loginWhatsapp, sendMessage } from "@/library/wa-webjs/whatsapp.controller";
 import { Request, Response } from "express";
 
 // error message function for unknown variable error
@@ -18,10 +18,17 @@ const handler = async (req: Request, res: Response) => {
 		}
 	}
 
-	if (req.method === "GET") {
+	if (req.method === "GET" && !req.query.id) {
+		try {
+			await checkWhatsappSession(res);
+		} catch (error) {
+			return res.status(500).json({ error: getErrorMessage(error) });
+		}
+	}
+	if (req.method === "GET" && req.query.id) {
 		try {
 			const id = req.query.id as string;
-			await checkWhatsappSession(id, res);
+			await loginWhatsapp(res);
 		} catch (error) {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}

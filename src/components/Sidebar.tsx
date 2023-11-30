@@ -10,9 +10,10 @@ import { buttonVariants } from "./ui/Button";
 interface SidebarProps {
 	isAdmin: boolean;
 	session: any;
+	userId: any;
 }
 
-const Sidebar: FC<SidebarProps> = ({ isAdmin, session }) => {
+const Sidebar: FC<SidebarProps> = ({ isAdmin, session, userId }) => {
 	const [collapseShow, setCollapseShow] = React.useState<boolean>(true);
 	const [menuStyle, setMenuStyle] = React.useState<string>(" xl:w-72 ");
 
