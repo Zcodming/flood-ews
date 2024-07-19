@@ -6,10 +6,10 @@ import React, { FC } from "react";
 import QRCode from "react-qr-code";
 import Paragraph from "./ui/Paragraph";
 import MessageForm from "./form/MessageForm";
-import { io, Socket } from "socket.io-client";
+// import { io, Socket } from "socket.io-client";
 import { toast } from "./ui/Toast";
 
-const socket: Socket = io("http://localhost:3000", { path: "/src/app/(dashboard)/socket.io" });
+// const socket: Socket = io("http://localhost:3000", { path: "/src/app/(dashboard)/socket.io" });
 interface QRCodeContainerProps {
 	userId: string;
 }
@@ -20,40 +20,40 @@ const QRCodeContainer: FC<QRCodeContainerProps> = ({ userId }) => {
 	const [message, setMessage] = React.useState<string>("This Is A Test Message");
 	const [phoneNumber, setPhoneNumber] = React.useState<string>("62895346793826");
 
-	const createWhatsappSession = () => {
-		console.log("Creating Whatsapp Session");
-		socket.emit("create-session");
-	};
+	// const createWhatsappSession = () => {
+	// 	console.log("Creating Whatsapp Session");
+	// 	socket.emit("create-session");
+	// };
 
-	const checkWhatsappSession = () => {
-		console.log("Checking Whatsapp Session");
-		socket.emit("check-session");
-	};
+	// const checkWhatsappSession = () => {
+	// 	console.log("Checking Whatsapp Session");
+	// 	socket.emit("check-session");
+	// };
 
-	const sendWhatsappMessage = () => {
-		console.log("Sending Whatsapp Message");
-		socket.emit("send-message", { phoneNumber, message });
-	};
+	// const sendWhatsappMessage = () => {
+	// 	console.log("Sending Whatsapp Message");
+	// 	socket.emit("send-message", { phoneNumber, message });
+	// };
 
-	React.useEffect(() => {
-		// checkWhatsappSession();
-		createWhatsappSession();
-		socket.on("qr", (data: any) => {
-			const { qr } = data;
-			console.log("QR Received from Server", qr);
-			setQrCode(qr);
-		});
-		socket.on("message", (data: any) => {
-			const { title, notification, type } = data;
-			console.log("Message Received from Server", notification);
-			toast({
-				title: title,
-				message: notification,
-				type: type,
-			});
-		});
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	// React.useEffect(() => {
+	// 	// checkWhatsappSession();
+	// 	createWhatsappSession();
+	// 	socket.on("qr", (data: any) => {
+	// 		const { qr } = data;
+	// 		console.log("QR Received from Server", qr);
+	// 		setQrCode(qr);
+	// 	});
+	// 	socket.on("message", (data: any) => {
+	// 		const { title, notification, type } = data;
+	// 		console.log("Message Received from Server", notification);
+	// 		toast({
+	// 			title: title,
+	// 			message: notification,
+	// 			type: type,
+	// 		});
+	// 	});
+	// 	// eslint-disable-next-line react-hooks/exhaustive-deps
+	// }, []);
 
 	// const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -66,6 +66,15 @@ const QRCodeContainer: FC<QRCodeContainerProps> = ({ userId }) => {
 	// 	},
 	// });
 
+	const { data, isLoading, isError, error } = useQuery({
+		queryKey: ["get-qr-code"],
+		queryFn: async () => {
+			const { data } = await axios.get(`http://localhost:3000/api/getqr`);
+			setQrCode(data);
+			return data;
+		},
+		refetchInterval: 20000,
+	});
 	// const { data, refetch, isLoading, isError, error } = useQuery({
 	// 	queryKey: ["get-qr-code"],
 	// 	queryFn: async () => {
@@ -118,14 +127,14 @@ const QRCodeContainer: FC<QRCodeContainerProps> = ({ userId }) => {
 				<br />
 			</div>
 			<div>
-				<Paragraph className="text-left font-bold">{message}</Paragraph>
-			</div>
-			<div>
-				<button
+				{/* <button
 					onClick={() => sendWhatsappMessage()}
 					className="bg-slate-800 text-white rounded-md px-4 py-2">
-					Send Message
-				</button>
+					Refresh QR Code
+				</button> */}
+			</div>
+			<div>
+				<MessageForm />
 			</div>
 		</>
 		// <>

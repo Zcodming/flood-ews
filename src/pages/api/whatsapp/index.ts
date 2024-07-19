@@ -1,4 +1,4 @@
-import { checkWhatsappSession, loginWhatsapp, sendMessage } from "@/library/wa-webjs/whatsapp.controller";
+import { checkWhatsappSession, sendMessage } from "@/library/wa-webjs/whatsapp.controller";
 import { Request, Response } from "express";
 
 // error message function for unknown variable error
@@ -25,14 +25,14 @@ const handler = async (req: Request, res: Response) => {
 			return res.status(500).json({ error: getErrorMessage(error) });
 		}
 	}
-	if (req.method === "GET" && req.query.id) {
-		try {
-			const id = req.query.id as string;
-			await loginWhatsapp(res);
-		} catch (error) {
-			return res.status(500).json({ error: getErrorMessage(error) });
-		}
-	}
+	// if (req.method === "GET" && req.query.id) {
+	// 	try {
+	// 		const id = req.query.id as string;
+	// 		await loginWhatsapp(res);
+	// 	} catch (error) {
+	// 		return res.status(500).json({ error: getErrorMessage(error) });
+	// 	}
+	// }
 };
 
 export default handler;

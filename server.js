@@ -68,10 +68,6 @@ app.prepare().then(() => {
 			socket.emit("qr", { qr });
 		});
 
-		client.on("ready", () => {
-			console.log("Client is ready!");
-		});
-
 		client.initialize();
 	};
 
@@ -119,7 +115,6 @@ app.prepare().then(() => {
 
 			sendResponse("Success", "Message sent", "success", socket);
 		});
-		const phoneNumber = "62895346793826";
 	});
 
 	server.listen(port, hostname, (err) => {

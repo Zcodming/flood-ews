@@ -18,7 +18,6 @@ const page: ({}: PageProps) => Promise<JSX.Element> = async () => {
 	let userId = user!.user.id;
 	if (!user) return notFound();
 
-	
 	return (
 		<div className="w-full h-full container flex flex-col gap-6">
 			<LargeHeading>Welcome {user.user.name}</LargeHeading>
@@ -29,9 +28,8 @@ const page: ({}: PageProps) => Promise<JSX.Element> = async () => {
 			<QRCodeContainer userId={userId} />
 
 			<Paragraph className="text-center md:text-left mt-4 -mb-4 ">
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aspernatur eius saepe odio tempora
-				temporibus, culpa repellendus, officia recusandae eos quo, voluptas nemo eveniet iusto.
-				Consequuntur cupiditate ratione consequatur quidem minus!
+				Scan QR code untuk login ke WhatsApp, tekan tombol refresh jika QR code tidak muncul atau
+				tidak bisa di-scan.
 			</Paragraph>
 		</div>
 	);

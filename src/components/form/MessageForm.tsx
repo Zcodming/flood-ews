@@ -23,10 +23,18 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
 		setIsLoading(true);
 
 		await axios
-			.post("http://localhost:3000/api/whatsapp/", formValue, {
-				params: { id: "clh67tgxg0000wgd02l0oomv3" }, // Admin
-				// params: { id: "clhz0whei0000wgxsjfq0i3wi" }, // user Ptk
-			})
+			.post(
+				"http://localhost:3000/chat/sendmessage/62895346793826",
+				{
+					message: "Hello World",
+				}
+				// formValue
+				// , {
+				// 	params: { phone: "62895346793826" }, // Phone Number
+				// 	params: { id: "clh67tgxg0000wgd02l0oomv3" }, // Admin
+				// 	params: { id: "clhz0whei0000wgxsjfq0i3wi" }, // user Ptk
+				// }
+			)
 			.then((response) => {
 				setResponse(response.data);
 				console.log(response.data);
