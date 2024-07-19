@@ -11,87 +11,68 @@ import React, { FC } from "react";
 interface MessageFormProps {}
 
 const MessageForm: FC<MessageFormProps> = ({}) => {
-	const [isLoading, setIsLoading] = React.useState<boolean>(false);
-	const [formValue, setformValue] = React.useState({
-		message: "",
-	});
+    const [isLoading, setIsLoading] = React.useState<boolean>(false);
+    const [formValue, setformValue] = React.useState([
+        {
+            hp: "6281345222156",
+            pesan: "Zahwa this is a early warning test message from Flood-EWS",
+        },
+        {
+            hp: "62895346793826",
+            pesan: "Zahwa this is a early warning test message from Flood-EWS 2",
+        },
+    ]);
 
-	const router = useRouter();
+    const onSubmit = async (e: any) => {
+        e.preventDefault();
+        // setIsLoading(true);
+        try {
+            const data = await axios.post(
+                "http://localhost:3000/api/whatsapp",
+                formValue
+            );
+            console.log("Post Send: ", data);
+            return toast({
+                title: "Success",
+                message: "Data Send",
+                type: "success",
+            });
+        } catch (error) {
+            toast({
+                title: "Something wrong",
+                message: "Error",
+                type: "error",
+            });
+            console.log(error);
+        }
+        // setIsLoading(false);
+    };
 
-	const onSubmit = async () => {
-		setIsLoading(true);
+    // const handleChange = (event: { target: { name: any; value: any } }) => {
+    //     setformValue({
+    //         ...formValue,
+    //         [event.target.name]: event.target.value,
+    //     });
+    // };
 
-		try {
-			await axios.post("http://localhost:3000/api/whatsapp/", formValue, {
-				params: { id: "clh67tgxg0000wgd02l0oomv3" }, // Admin
-				// params: { id: "clhz0whei0000wgxsjfq0i3wi" }, // user Ptk
-			});
-
-			setTimeout(() => {
-				setIsLoading(false);
-				toast({
-					title: "Success",
-					message: "Message Send Successfully",
-					type: "success",
-				});
-			}, 30000);
-
-			// if (data == "Message Send") {
-			// 	setIsLoading(false);
-			// 	toast({
-			// 		title: "Success",
-			// 		message: "Message Send Successfully",
-			// 		type: "success",
-			// 	});
-
-			// 	//this will reload the page without doing SSR
-			// 	return router.refresh();
-			// }
-
-			// if (data == "Failed to Send") {
-			// 	throw new Error();
-			// }
-		} catch (error) {
-			setIsLoading(false);
-			return toast({
-				title: "Something wrong",
-				message: "Failed to Send the Massage",
-				type: "error",
-			});
-		}
-	};
-
-	const handleChange = (event: { target: { name: any; value: any } }) => {
-		setformValue({
-			...formValue,
-			[event.target.name]: event.target.value,
-		});
-	};
-
-	return (
-		<div className="px-8 py-6">
-			<form action="" method="post">
-				<div className="flex flex-warp gap-4">
-					<TextBox
-						lableText="Message Template"
-						className="w-1/2"
-						name="message"
-						type="text"
-						value={formValue.message}
-						onChange={handleChange}
-					/>
-				</div>
-				<Button
-					className="items-end justify-center mt-6"
-					variant={"green"}
-					onClick={onSubmit}
-					isLoading={isLoading}>
-					<span>Send Message</span>
-				</Button>
-				{/* <div className="relative text-white">{JSON.stringify(data)}</div> */}
-			</form>
-		</div>
-	);
+    return (
+        <div className="px-8 py-6">
+            <form action="" method="post">
+                <Button
+                    className="items-end justify-center mt-6"
+                    variant={"green"}
+                    onClick={onSubmit}
+                    // isLoading={isLoading}
+                >
+                    <span>Send Message</span>
+                </Button>
+                {/* <div className="relative text-white">{JSON.stringify(data)}</div> */}
+            </form>
+        </div>
+    );
 };
 
 export default MessageForm;
+function preventDefault() {
+    throw new Error("Function not implemented.");
+}
