@@ -93,7 +93,7 @@ export async function deleteUser(id: string) {
 		// check if selected user id is current user login
 		const accData = await prisma.account.findUnique({
 			where: {
-				userId: id,
+				id: id,
 			},
 			select: {
 				userId: true,

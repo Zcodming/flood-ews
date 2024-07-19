@@ -22,21 +22,31 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
 
     const onSubmit = async (e: any) => {
         e.preventDefault();
+<<<<<<< HEAD
         setIsLoading(true);
+=======
+        // setIsLoading(true);
+>>>>>>> 8bb988241466d87e8bfed0942d94c1adced58245
         try {
             const data = await axios.post(
                 "http://localhost:3000/api/whatsapp",
                 formValue
             );
             console.log("Post Send: ", data);
+<<<<<<< HEAD
             setIsLoading(false);
+=======
+>>>>>>> 8bb988241466d87e8bfed0942d94c1adced58245
             return toast({
                 title: "Success",
                 message: "Data Send",
                 type: "success",
             });
         } catch (error) {
+<<<<<<< HEAD
             setIsLoading(false);
+=======
+>>>>>>> 8bb988241466d87e8bfed0942d94c1adced58245
             toast({
                 title: "Something wrong",
                 message: "Error",
@@ -44,6 +54,10 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
             });
             console.log(error);
         }
+<<<<<<< HEAD
+=======
+        // setIsLoading(false);
+>>>>>>> 8bb988241466d87e8bfed0942d94c1adced58245
     };
 
     // const handleChange = (event: { target: { name: any; value: any } }) => {
@@ -60,13 +74,24 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
                     className="items-end justify-center mt-6"
                     variant={"green"}
                     onClick={onSubmit}
+<<<<<<< HEAD
                     isLoading={isLoading}
                 >
                     <span>Send Message</span>
                 </Button>
+=======
+                    // isLoading={isLoading}
+                >
+                    <span>Send Message</span>
+                </Button>
+                {/* <div className="relative text-white">{JSON.stringify(data)}</div> */}
+>>>>>>> 8bb988241466d87e8bfed0942d94c1adced58245
             </form>
         </div>
     );
 };
 
 export default MessageForm;
+function preventDefault() {
+    throw new Error("Function not implemented.");
+}

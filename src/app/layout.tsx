@@ -3,9 +3,9 @@ import Footer from "@/components/Footer";
 import Providers from "@/components/Providers";
 import { Toaster } from "@/components/ui/Toast";
 import { authOptions } from "@/library/auth";
+import { getServerSession } from "next-auth";
 import { cn } from "@/library/utils";
 import "@/styles/globals.css";
-import { getServerSession } from "next-auth";
 import { Inter } from "next/font/google";
 
 export const metadata = {
