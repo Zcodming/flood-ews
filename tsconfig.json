@@ -25,6 +25,7 @@
 			"@/components/*": ["./src/components/*"],
 			"@/library/*": ["./src/library/*"],
 			"@/ui/*": ["./src/components/ui/*"],
+			"@/form/*": ["./src/components/form/*"],
 			"@/button/*": ["./src/components/button/*"],
 			"@/utils/*": ["./src/utils/*"]
 		}

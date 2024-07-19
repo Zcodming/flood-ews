@@ -10,6 +10,7 @@ const client = new Client({
 	qrMaxReries: 10,
 	authStrategy: new LocalAuth({
 		clientId: "client-admin",
+		dataPath: './src/library/wa-webjs/webjs-auth',
 		backupSyncIntervalMs: 60000, // [Default: 3600000] Interval at which to sync the backup, in milliseconds
 	}),
 });

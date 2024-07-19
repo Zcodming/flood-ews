@@ -31,6 +31,7 @@ export default withAuth(
 		// if (isAdmin !== "ADMIN" && restrictedRoute.some((route) => pathname.startsWith(route))) {
 		// 	return NextResponse.redirect(new URL("/restricted", req.url));
 		// }
+		
 	},
 	{
 		callbacks: {
@@ -46,6 +47,7 @@ export const config = {
 		"/",
 		"/login",
 		"/register",
+		"/dashboard",
 		"/dashboard/:path*",
 		"/api/:path*",
 		"/account/:path*",

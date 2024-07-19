@@ -6,7 +6,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "scripts": {
-    "dev": "node api.js",
+    "dev": "node server.js",
     "build": "prisma generate && next build",
     "start": "set NODE_ENV=production node server.js",
     "lint": "next lint"
@@ -57,6 +57,7 @@
     "puppeteer": "^20.7.4",
     "qrcode": "^1.5.3",
     "qrcode-terminal": "^0.12.0",
+    "qs": "^6.12.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hot-toast": "^2.4.1",

@@ -72,9 +72,18 @@ const handler = async (req: Request, res: Response) => {
 	if (req.method === "PUT") {
 		try {
 			const id = req.body.id;
-			const address = req.body.address;
-			const details = req.body.details;
-			const { device, error } = await updateDevice(id, address, details);
+			const deviceName = req.body.deviceName;
+			const channelId = req.body.channelId;
+			const field = req.body.field;
+			const userId = req.body.userId;
+			const locationId = req.body.locationId;
+			const deviceAddress = req.body.deviceAddress;
+			const { device, error } = await updateDevice(id, deviceName,
+				channelId,
+				field,
+				userId,
+				locationId,
+				deviceAddress);
 			if (error) throw new Error(getErrorMessage(error), { cause: error });
 			return res.status(200).json({ device });
 		} catch (error) {
