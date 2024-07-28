@@ -51,78 +51,81 @@ model User {
   name          String
   username      String      @unique
   password      String
+  role          UserRole    @default(USER)
   email         String      @unique
   emailVerified DateTime?
   createAt      DateTime    @default(now())
   updateAt      DateTime    @updatedAt
-  role          UserRole    @default(USER)
   accounts      Account[]
   devices       Devices[]
   sessions      Session[]
   locations     Locations[]
-  apiKey        String?
+  Contact       Contact[]
 }
 
 model Locations {
   id       String    @id @default(cuid())
   address  String    @unique
-  details  String?
+  province String
+  regency  String
+  city     String
   userId   String
-  userName String
   createAt DateTime  @default(now())
   updateAt DateTime  @updatedAt
   devices  Devices[]
-  staf     Staf[]
+  contact  Contact[]
   user     User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([userId])
 }
 
 model Devices {
-  id            String    @id @default(cuid())
-  deviceName    String
-  apiKey        String?
-  channelId     String
-  field         Int
-  deviceAddress String
-  locationId    String
-  userId        String
-  createAt      DateTime  @default(now())
-  updateAt      DateTime  @updatedAt
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  location      Locations @relation(fields: [locationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  id             String           @id @default(cuid())
+  deviceName     String           @unique
+  channel        Int
+  field          Int
+  locationId     String
+  userId         String
+  createAt       DateTime         @default(now())
+  updateAt       DateTime         @updatedAt
+  user           User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  location       Locations        @relation(fields: [locationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  DevicePosition DevicePosition[]
+  Contact        Contact[]
 
   @@index([locationId])
   @@index([userId])
 }
 
 model DevicePosition {
-  id        String  @id @default(cuid())
-  deviceId  String  @unique
-  apiKey    String
-  longitude String?
-  latitude  String?
+  id         Int      @id @default(autoincrement())
+  deviceName String   @unique
+  latitude   Decimal? @db.Decimal(9, 6)
+  longitude  Decimal? @db.Decimal(9, 6)
+  createAt   DateTime @default(now())
+  updateAt   DateTime @updatedAt
+  device     Devices  @relation(fields: [deviceName], references: [deviceName], onDelete: Cascade)
+
+  @@index([deviceName])
 }
 
-model Staf {
-  id           String    @id @default(cuid())
-  name         String
-  details      String?
-  stafLocation String
-  locationId   String
-  phoneNumber  String    @unique
-  location     Locations @relation(fields: [locationId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  createAt     DateTime  @default(now())
-  updateAt     DateTime  @updatedAt
+model Contact {
+  id              String    @id @default(cuid())
+  waNumber        String    @unique
+  description     String?   @db.Text
+  deviceName      String
+  name            String
+  userId          String
+  contactLocation String
+  createAt        DateTime  @default(now())
+  updateAt        DateTime  @updatedAt
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  location        Locations @relation(fields: [contactLocation], references: [address], onDelete: Restrict, onUpdate: Cascade)
+  device          Devices   @relation(fields: [deviceName], references: [deviceName], onDelete: Restrict, onUpdate: Cascade)
 
-  @@index([locationId])
-}
-
-model Store {
-  id       String   @id @default(cuid())
-  clientId String   @unique
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  @@index([contactLocation])
+  @@index([deviceName])
+  @@index([userId])
 }
 
 model VerificationToken {

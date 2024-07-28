@@ -13,6 +13,9 @@ import {
 	Settings,
 	LineChart,
 	LayoutDashboard,
+	Eye,
+	Check,
+	Edit,
 } from "lucide-react";
 
 export const Icons = {
@@ -30,6 +33,9 @@ export const Icons = {
 	Settings,
 	LineChart,
 	LayoutDashboard,
+	Eye,
+	Check,
+	Edit,
 };
 
 export default Icons;
