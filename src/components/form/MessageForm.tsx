@@ -1,11 +1,8 @@
 "use client";
 
-import TextBox from "@/components/ui/TextBox";
-
 import Button from "@/ui/Button";
 import { toast } from "@/ui/Toast";
 import axios from "axios";
-import { useRouter } from "next/navigation";
 import React, { FC } from "react";
 
 interface MessageFormProps {}
@@ -25,19 +22,21 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
 
     const onSubmit = async (e: any) => {
         e.preventDefault();
-        // setIsLoading(true);
+        setIsLoading(true);
         try {
             const data = await axios.post(
                 "http://localhost:3000/api/whatsapp",
                 formValue
             );
             console.log("Post Send: ", data);
-            return toast({
+            setIsLoading(false);
+            toast({
                 title: "Success",
-                message: "Data Send",
+                message: "Message Sent",
                 type: "success",
             });
         } catch (error) {
+            setIsLoading(false);
             toast({
                 title: "Something wrong",
                 message: "Error",
@@ -45,7 +44,6 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
             });
             console.log(error);
         }
-        // setIsLoading(false);
     };
 
     // const handleChange = (event: { target: { name: any; value: any } }) => {
@@ -62,11 +60,10 @@ const MessageForm: FC<MessageFormProps> = ({}) => {
                     className="items-end justify-center mt-6"
                     variant={"green"}
                     onClick={onSubmit}
-                    // isLoading={isLoading}
+                    isLoading={isLoading}
                 >
                     <span>Send Message</span>
                 </Button>
-                {/* <div className="relative text-white">{JSON.stringify(data)}</div> */}
             </form>
         </div>
     );

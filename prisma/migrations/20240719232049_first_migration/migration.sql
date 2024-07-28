@@ -36,11 +36,11 @@ CREATE TABLE `User` (
     `name` VARCHAR(191) NOT NULL,
     `username` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
+    `role` ENUM('ADMIN', 'USER') NOT NULL DEFAULT 'USER',
     `email` VARCHAR(191) NOT NULL,
     `emailVerified` DATETIME(3) NULL,
     `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updateAt` DATETIME(3) NOT NULL,
-    `role` ENUM('ADMIN', 'USER') NOT NULL DEFAULT 'USER',
     `apiKey` VARCHAR(191) NULL,
 
     UNIQUE INDEX `User_username_key`(`username`),
@@ -52,13 +52,12 @@ CREATE TABLE `User` (
 CREATE TABLE `Locations` (
     `id` VARCHAR(191) NOT NULL,
     `address` VARCHAR(191) NOT NULL,
-    `details` VARCHAR(191) NULL,
+    `province` VARCHAR(191) NOT NULL,
+    `city` VARCHAR(191) NOT NULL,
     `userId` VARCHAR(191) NOT NULL,
-    `userName` VARCHAR(191) NOT NULL,
     `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updateAt` DATETIME(3) NOT NULL,
 
-    UNIQUE INDEX `Locations_address_key`(`address`),
     INDEX `Locations_userId_idx`(`userId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -70,7 +69,6 @@ CREATE TABLE `Devices` (
     `apiKey` VARCHAR(191) NULL,
     `channelId` VARCHAR(191) NOT NULL,
     `field` INTEGER NOT NULL,
-    `deviceAddress` VARCHAR(191) NOT NULL,
     `locationId` VARCHAR(191) NOT NULL,
     `userId` VARCHAR(191) NOT NULL,
     `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
@@ -83,40 +81,33 @@ CREATE TABLE `Devices` (
 
 -- CreateTable
 CREATE TABLE `DevicePosition` (
-    `id` VARCHAR(191) NOT NULL,
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
     `deviceId` VARCHAR(191) NOT NULL,
     `apiKey` VARCHAR(191) NOT NULL,
     `longitude` VARCHAR(191) NULL,
     `latitude` VARCHAR(191) NULL,
+    `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updateAt` DATETIME(3) NOT NULL,
 
-    UNIQUE INDEX `DevicePosition_deviceId_key`(`deviceId`),
+    INDEX `DevicePosition_deviceId_idx`(`deviceId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 -- CreateTable
-CREATE TABLE `Staf` (
+CREATE TABLE `Contact` (
     `id` VARCHAR(191) NOT NULL,
-    `name` VARCHAR(191) NOT NULL,
-    `details` VARCHAR(191) NULL,
-    `stafLocation` VARCHAR(191) NOT NULL,
     `locationId` VARCHAR(191) NOT NULL,
-    `phoneNumber` VARCHAR(191) NOT NULL,
+    `userId` VARCHAR(191) NOT NULL,
+    `name` VARCHAR(191) NOT NULL,
+    `description` VARCHAR(191) NULL,
+    `contactLocation` VARCHAR(191) NOT NULL,
+    `waNumber` VARCHAR(191) NOT NULL,
     `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updateAt` DATETIME(3) NOT NULL,
 
-    UNIQUE INDEX `Staf_phoneNumber_key`(`phoneNumber`),
-    INDEX `Staf_locationId_idx`(`locationId`),
-    PRIMARY KEY (`id`)
-) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- CreateTable
-CREATE TABLE `Store` (
-    `id` VARCHAR(191) NOT NULL,
-    `clientId` VARCHAR(191) NOT NULL,
-    `createAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
-    `updateAt` DATETIME(3) NOT NULL,
-
-    UNIQUE INDEX `Store_clientId_key`(`clientId`),
+    UNIQUE INDEX `Contact_waNumber_key`(`waNumber`),
+    INDEX `Contact_locationId_idx`(`locationId`),
+    INDEX `Contact_userId_idx`(`userId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 

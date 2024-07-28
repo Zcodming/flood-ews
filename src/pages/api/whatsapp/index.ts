@@ -1,8 +1,5 @@
-import { loginWhatsapp } from "@/library/wa-webjs/whatsapp.connect";
-import { sendMessage } from "@/library/wa-webjs/whatsapp.controller";
 import axios from "axios";
 import { Request, Response } from "express";
-import QueryString from "qs";
 
 // error message function for unknown variable error
 function getErrorMessage(error: unknown) {
